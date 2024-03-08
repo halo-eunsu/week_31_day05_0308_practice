@@ -32,8 +32,10 @@ public class LoginController {
     public ModelAndView processLogin(MemberLoginRequest loginRequest, HttpServletRequest request, HttpServletResponse response) throws LoginFailureException {
         try {
             String userId = memberService.loginMember(loginRequest).getName();
-            request
-
+            request.getSession().setAttribute("loginId",userId);
+            return new ModelAndView("redirect:/");
+        } catch (LoginFailureException e){
+            return new ModelAndView("redirect:/login");
         }
     }
 
