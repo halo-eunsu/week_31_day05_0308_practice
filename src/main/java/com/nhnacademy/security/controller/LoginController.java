@@ -30,7 +30,11 @@ public class LoginController {
     // TODO #7: 실습 - 로그인 처리
     @PostMapping
     public ModelAndView processLogin(MemberLoginRequest loginRequest, HttpServletRequest request, HttpServletResponse response) throws LoginFailureException {
-        return null;
+        try {
+            String userId = memberService.loginMember(loginRequest).getName();
+            request
+
+        }
     }
 
 }
